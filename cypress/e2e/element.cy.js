@@ -18,7 +18,7 @@ describe("Validate Element", () => {
     cy.get(".media").should("include.text", "Rizky Gunardi");
     cy.get("app-gitrepos > .block > .content").should(
       "include.text",
-      "https://github.com/rizkygunardi/demoQA-Testing"
+      "https://github.com/rizkygunardi/letCode-Testing"
     );
   });
 });

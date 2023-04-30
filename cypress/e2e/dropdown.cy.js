@@ -14,11 +14,11 @@ describe("Validate Dropdown", () => {
     )
       .should("include.text", "Drop-Down")
       .click();
-    cy.get("#fruits").select("Banana").should("include.text", "Banana");
+    cy.get("#fruits").select("Apple").should("include.text", "Apple");
     cy.get("#superheros > :nth-child(23)")
       .should("include.text", "Spider-Man")
       .click();
-    cy.get("#lang").select("Swift").should("include.text", "Swift");
-    cy.get("#country").select("Venezuela").should("include.text", "Venezuela");
+    cy.get("#lang").select("sharp").should("include.text", "C#");
+    cy.get("#country").select("India").should("include.text", "India");
   });
 });

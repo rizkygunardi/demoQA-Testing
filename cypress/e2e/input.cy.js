@@ -7,6 +7,7 @@ describe("Validate Input", () => {
       "include.text",
       "Practice and become pro in test automation"
     );
+    cy.intercept({ resourceType: /xhr|fetch/ }, { log: false });
   });
   it("Fill in Input", () => {
     cy.get(
@@ -16,18 +17,13 @@ describe("Validate Input", () => {
       .click();
     cy.get("#fullName").type("Rizky Gunardi");
     cy.get("#join")
-      .clear()
-      .type("I Very Happy")
-      .should("have.value", "I Very Happy");
-    cy.get("#getMe")
-      .clear()
-      .type("Melakukan testing pada website letcode")
-      .should("have.value", "Melakukan testing pada website letcode");
-    cy.get("#clearMe")
-      .clear()
-      .type("Mari belajar bersama")
-      .should("have.value", "Mari belajar bersama")
-      .wait(2000)
-      .clear();
+      .type(" and awesome")
+      .should("have.value", "I am good and awesome");
+    cy.get("#getMe").should("have.value", "ortonikc");
+    cy.get("#clearMe").clear().should("have.value", "");
+    // .wait(2000)
+    // .clear();
+    cy.get("#noEdit").should("be.disabled");
+    cy.get("#dontwrite").should("have.value", "This text is readonly");
   });
 });
